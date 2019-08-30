@@ -39,12 +39,16 @@ return <Row className={props.className}>
 </Row>;
 }
 
+const CVButton = styled(Button)`
+  background: #2b211f;
+`
+
 
 function ColorContainer(props){
   var position = props.position;
   return <Row id={ position }>
       <Col text-center="true" >
-        <Button></Button>
+        <Button href={props.href}></Button>
       </Col>
     </Row>;
 }
@@ -61,13 +65,12 @@ function App() {
       <script>var Alert = ReactBootstrap.Alert;</script>
       <div id="spacer">
         <h5> Henry Maher </h5>
-        <h6> Brief Intro </h6>
-        <h6> Hoverable </h6>
+        <h6 id="changingText"> Personal Website </h6>
       </div>
       <Container id="circle">
         <Image id="circle-image" src={ logo }/>
         <ButtonGroup vertical>
-            <ColorContainer position="outer"></ColorContainer>
+            <ColorContainer  href="https://github.com/hm352" position="outer"></ColorContainer>
             <ColorContainer  position="inner"></ColorContainer>
             <ColorContainer  position="inner"></ColorContainer>
             <ColorContainer  position="outer"></ColorContainer>
@@ -79,11 +82,9 @@ function App() {
       <div id="CV">
       <Container id="stripes">
           <StyledStripe id="stripe" className="stripe" colour1="#748f87" colour2="#2b211f"></StyledStripe>
-          <p></p>
+          <CVButton className="cvbutton"> CV Download </CVButton>
       </Container>
-      <Container id="outerStripe">
-        <OuterStripe className="yay" colour1="#748f87" colour2="#2b211f"></OuterStripe>
-      </Container>
+
       </div>
   </div>
   );

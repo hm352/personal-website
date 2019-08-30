@@ -131,6 +131,23 @@ body {
   height: 100px;
 }
 
+#changingText {
+  display: none;
+}
+
+.cvbutton{
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  opacity: 1;
+}
+.cvbutton:hover {
+  background-color: #748f87;
+  outline-color: #2b211f;
+
+}
+
 /* #first {
   background-color: Green;
 } */
