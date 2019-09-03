@@ -19,6 +19,26 @@
   color: white;
 }
 
+.nodeImage{
+  max-width:  20px;
+  max-height: 20px;
+}
+.right.nodeImage{
+  position: relative;
+  right: 45px;
+  top: -3px;
+}
+.left.nodeImage{
+  position: relative;
+  right: -45px;
+  top: -2px;
+}
+
+.nodeText{
+  position: relative;
+  top:-25px;
+}
+
 .btn {
   background-color : rgba(225, 225, 225, 0.0);
   border-color: rgba(225, 225, 225, 0.0);
@@ -89,13 +109,8 @@ body {
 /* .newPage{
   display: none;
 } */
-
-#npLeft {
-  background: black;
-}
-
-#npright {
-  background: red;
+.nodeContent{
+  padding-top: 7em;
 }
 #circle {
   position: relative;
@@ -132,7 +147,11 @@ body {
 }
 
 #changingText {
-  display: none;
+  /* display: none; */
+}
+
+#timeline {
+  bottom: 1000px;
 }
 
 .cvbutton{

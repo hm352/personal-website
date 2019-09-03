@@ -6,15 +6,15 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import logo from './circle.png';
+import node from './node.png';
 import stripe from './stipes1.png';
 import styled from 'styled-components';
-// import { bounce } from 'react-animations';
-// import logo from './logo.svg';
 import './App.css';
 
 const Stripe = styled(Col)`
   background: ${props => props.color};
 `
+
 function StyledStripe(props){
 var colour1 = props.colour1;
 var colour2 = props.colour2;
@@ -26,31 +26,55 @@ return <Row className={props.className}>
 </Row>;
 }
 
-function OuterStripe(props){
-var colour1 = props.colour1;
-var colour2 = props.colour2;
-return <Row className={props.className}>
+function Node(props) {
+  var imageClass = props.position + " nodeImage";
+  return <Col className="nodeContent">
+  <Image className={imageClass} src={node} fluid></Image>
+  <p className="nodeText"> {props.content} </p>
+  </Col>;
+}
 
-  <Stripe id="left-stripe" color={colour1}/>
-    <Col></Col>
-    <Col></Col>
-  <Stripe id="right-stripe"color={colour2}/>
-
-</Row>;
+function TimelineNode(props){
+var left = props.left;
+var right = props.right;
+var content = props.content;
+if (left){
+return <Row>
+    <Node content={content} position="left"></Node>
+    <Col/>
+  </Row>;
+}
+return <Row>
+    <Col/>
+    <Node position="right"></Node>
+  </Row>;
 }
 
 const CVButton = styled(Button)`
   background: #2b211f;
 `
 
-
-function ColorContainer(props){
-  var position = props.position;
-  return <Row id={ position }>
-      <Col text-center="true" >
-        <Button href={props.href}></Button>
-      </Col>
-    </Row>;
+class ColorContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: true};
+  }
+  onClick() {
+    alert("click");
+  }
+  render() {
+    if(this.state.date){
+    return (
+      <Row id={ this.props.position }>
+        <Col text-center="true" >
+          <Button onClick={this.onClick} href={this.props.href}>
+            {this.props.content}
+          </Button>
+        </Col>
+      </Row>
+    );
+  }
+  }
 }
 
 function App() {
@@ -64,16 +88,16 @@ function App() {
         src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"      />
       <script>var Alert = ReactBootstrap.Alert;</script>
       <div id="spacer">
-        <h5> Henry Maher </h5>
-        <h6 id="changingText"> Personal Website </h6>
+        <br></br>
+        <h5> Henry Maher - Developer </h5>
       </div>
       <Container id="circle">
         <Image id="circle-image" src={ logo }/>
         <ButtonGroup vertical>
-            <ColorContainer  href="https://github.com/hm352" position="outer"></ColorContainer>
-            <ColorContainer  position="inner"></ColorContainer>
-            <ColorContainer  position="inner"></ColorContainer>
-            <ColorContainer  position="outer"></ColorContainer>
+            <ColorContainer  content="GitHub" href="https://github.com/hm352" position="outer"> </ColorContainer>
+            <ColorContainer  content="LinkedIn" position="inner" href="https://uk.linkedin.com/in/henry-maher-340949b8"></ColorContainer>
+            <ColorContainer  content="Blog" position="inner"></ColorContainer>
+            <ColorContainer  content="Fun Stuff"position="outer"></ColorContainer>
         </ButtonGroup>
       </Container>
       <Container id="stripes">
@@ -82,9 +106,18 @@ function App() {
       <div id="CV">
       <Container id="stripes">
           <StyledStripe id="stripe" className="stripe" colour1="#748f87" colour2="#2b211f"></StyledStripe>
-          <CVButton className="cvbutton"> CV Download </CVButton>
+          <CVButton className="cvbutton"> Download CV </CVButton>
       </Container>
+      <Container id="timeline">
+        <TimelineNode left="this" content="some string
+          "></TimelineNode>
+        <TimelineNode></TimelineNode>
+        <TimelineNode left="this"></TimelineNode>
+        <TimelineNode></TimelineNode>
+        <TimelineNode left="this"></TimelineNode>
+        <TimelineNode></TimelineNode>
 
+      </Container>
       </div>
   </div>
   );
