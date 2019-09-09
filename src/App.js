@@ -6,10 +6,13 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import logo from './circle.png';
-import node from './node.png';
-import stripe from './stipes1.png';
 import styled from 'styled-components';
 import './App.css';
+import IconNode from "./components/iconNode.js";
+import IosCafe from 'react-ionicons/lib/IosCafe';
+import IosBulb from 'react-ionicons/lib/IosBulb';
+import IosGitCommit from 'react-ionicons/lib/IosGitCommit';
+
 
 const Stripe = styled(Col)`
   background: ${props => props.color};
@@ -26,32 +29,13 @@ return <Row className={props.className}>
 </Row>;
 }
 
-function Node(props) {
-  var imageClass = props.position + " nodeImage";
-  return <Col className="nodeContent">
-  <Image className={imageClass} src={node} fluid></Image>
-  <p className="nodeText"> {props.content} </p>
-  </Col>;
-}
-
-function TimelineNode(props){
-var left = props.left;
-var right = props.right;
-var content = props.content;
-if (left){
-return <Row>
-    <Node content={content} position="left"></Node>
-    <Col/>
-  </Row>;
-}
-return <Row>
-    <Col/>
-    <Node position="right"></Node>
-  </Row>;
-}
-
-const CVButton = styled(Button)`
+const StyledButton = styled(Button)`
   background: #2b211f;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  opacity: 1;
 `
 
 class ColorContainer extends React.Component {
@@ -89,7 +73,7 @@ function App() {
       <script>var Alert = ReactBootstrap.Alert;</script>
       <div id="spacer">
         <br></br>
-        <h5> Henry Maher - Developer </h5>
+        <h5> Henry Maher - Software Developer </h5>
       </div>
       <Container id="circle">
         <Image id="circle-image" src={ logo }/>
@@ -106,18 +90,20 @@ function App() {
       <div id="CV">
       <Container id="stripes">
           <StyledStripe id="stripe" className="stripe" colour1="#748f87" colour2="#2b211f"></StyledStripe>
-          <CVButton className="cvbutton"> Download CV </CVButton>
+          <StyledButton className="styledbutton"> Download CV </StyledButton>
       </Container>
-      <Container id="timeline">
-        <TimelineNode left="this" content="some string
-          "></TimelineNode>
-        <TimelineNode></TimelineNode>
-        <TimelineNode left="this"></TimelineNode>
-        <TimelineNode></TimelineNode>
-        <TimelineNode left="this"></TimelineNode>
-        <TimelineNode></TimelineNode>
-
-      </Container>
+    <Container id="timeline">
+      <Row>
+        <Col>
+          <IconNode content="Coffees"random> <IosCafe color="#748f87"></IosCafe> </IconNode>
+          <IconNode content="Ideas" random> <IosBulb color="#748f87"></IosBulb> </IconNode>
+          <IconNode content="Commits"random> <IosGitCommit color="#748f87"></IosGitCommit> </IconNode>
+        </Col>
+        <Col className="codeColumn">
+          <StyledButton href="" className="styledbutton"> See Code! </StyledButton>
+        </Col>
+      </Row>
+  </Container>
       </div>
   </div>
   );

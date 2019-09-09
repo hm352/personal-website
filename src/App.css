@@ -19,15 +19,31 @@
   color: white;
 }
 
-.nodeImage{
-  max-width:  20px;
-  max-height: 20px;
+svg {
+  width:  40px;
+  height: 70px;
 }
+
+.icon {
+  padding-bottom: 20px;
+}
+
+.counterRow {
+  padding-bottom: 30px;
+}
+
+.counterText {
+  text-align: left;
+  top: 23px;
+  padding-bottom: 30px;
+}
+
 .right.nodeImage{
   position: relative;
   right: 45px;
   top: -3px;
 }
+
 .left.nodeImage{
   position: relative;
   right: -45px;
@@ -146,22 +162,12 @@ body {
   height: 100px;
 }
 
-#changingText {
-  /* display: none; */
-}
-
 #timeline {
-  bottom: 1000px;
+  bottom: 880px;
 }
 
-.cvbutton{
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-  text-align: center;
-  opacity: 1;
-}
-.cvbutton:hover {
+
+.styledbutton:hover {
   background-color: #748f87;
   outline-color: #2b211f;
 
