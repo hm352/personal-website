@@ -6,47 +6,63 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import logo from './circle.png';
-import stripe from './stipes1.png';
+import arrow from './down-arrow.svg'
 import styled from 'styled-components';
-// import { bounce } from 'react-animations';
-// import logo from './logo.svg';
 import './App.css';
+import IconNode from "./components/iconNode.js";
+import IosCafe from 'react-ionicons/lib/IosCafe';
+import IosBulb from 'react-ionicons/lib/IosBulb';
+import IosGitCommit from 'react-ionicons/lib/IosGitCommit';
+
 
 const Stripe = styled(Col)`
   background: ${props => props.color};
+  height: ${ props => props.height};
 `
+
 function StyledStripe(props){
 var colour1 = props.colour1;
 var colour2 = props.colour2;
+var height = props.height || '500px';
 return <Row className={props.className}>
   <Col></Col>
-  <Stripe id="left-stripe" color={colour1}/>
-  <Stripe id="right-stripe"color={colour2}/>
+  <Stripe id="left-stripe" color={colour1} height={height}/>
+  <Stripe id="right-stripe"color={colour2} height={height}/>
   <Col></Col>
 </Row>;
 }
 
-function OuterStripe(props){
-var colour1 = props.colour1;
-var colour2 = props.colour2;
-return <Row className={props.className}>
+const StyledButton = styled(Button)`
+  background: #2b211f;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  opacity: 1;
+  z-index: 1;
+`
 
-  <Stripe id="left-stripe" color={colour1}/>
-    <Col></Col>
-    <Col></Col>
-  <Stripe id="right-stripe"color={colour2}/>
-
-</Row>;
-}
-
-
-function ColorContainer(props){
-  var position = props.position;
-  return <Row id={ position }>
-      <Col text-center="true" >
-        <Button></Button>
-      </Col>
-    </Row>;
+class ColorContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: true};
+  }
+  onClick() {
+    alert("click");
+  }
+  render() {
+    if(this.state.date){
+    return (
+      <Row id={ this.props.position }>
+        <Col text-center="true" >
+          <Button onClick={this.onClick} href={this.props.href}>
+            {this.props.content}
+          </Button>
+        </Col>
+      </Row>
+    );
+  }
+  }
 }
 
 function App() {
@@ -60,31 +76,59 @@ function App() {
         src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"      />
       <script>var Alert = ReactBootstrap.Alert;</script>
       <div id="spacer">
-        <h5> Henry Maher </h5>
-        <h6> Brief Intro </h6>
-        <h6> Hoverable </h6>
+        <br></br>
+        <h5> Henry Maher - Software Developer </h5>
       </div>
       <Container id="circle">
         <Image id="circle-image" src={ logo }/>
         <ButtonGroup vertical>
-            <ColorContainer position="outer"></ColorContainer>
-            <ColorContainer  position="inner"></ColorContainer>
-            <ColorContainer  position="inner"></ColorContainer>
-            <ColorContainer  position="outer"></ColorContainer>
+            <ColorContainer  content="GitHub" href="https://github.com/hm352" position="outer"> </ColorContainer>
+            <ColorContainer  content="LinkedIn" position="inner" href="https://uk.linkedin.com/in/henry-maher-340949b8"></ColorContainer>
+            <ColorContainer  content="Blog" position="inner"></ColorContainer>
+            <ColorContainer  content="Fun Stuff"position="outer"></ColorContainer>
         </ButtonGroup>
+        <Image  className="bounceArrow" src={ arrow }/>
       </Container>
-      <Container id="stripes">
-          <StyledStripe id="stripe" className="stripe" colour1="#748f87" colour2="#2b211f"></StyledStripe>
+      <Container className="stripes">
+          <StyledStripe colour1="#748f87" colour2="#2b211f" height='400px'></StyledStripe>
+          <StyledStripe  colour1="#748f87" colour2="#2b211f"></StyledStripe>
+          <StyledStripe  id="end" colour1="#748f87" colour2="#2b211f"></StyledStripe>
       </Container>
-      <div id="CV">
-      <Container id="stripes">
-          <StyledStripe id="stripe" className="stripe" colour1="#748f87" colour2="#2b211f"></StyledStripe>
-          <p></p>
-      </Container>
-      <Container id="outerStripe">
-        <OuterStripe className="yay" colour1="#748f87" colour2="#2b211f"></OuterStripe>
-      </Container>
-      </div>
+    <Container id="intro">
+      <StyledButton> Brief Intro</StyledButton>
+      <Row>
+      <Col className="left">
+        <p> hello </p>
+      </Col>
+      <Col className="right">
+        <p> there </p>
+      </Col>
+    </Row>
+    </Container>
+    <Container id="timeline">
+    <Row>
+      <Col>
+        <StyledButton> Since 1995 I have</StyledButton>
+      </Col>
+    </Row>
+    <Row>
+        <Col className="left">
+          <IconNode content="Coffees"random> <IosCafe color="#748f87"></IosCafe> </IconNode>
+          <IconNode content="Ideas" random> <IosBulb color="#748f87"></IosBulb> </IconNode>
+          <IconNode content="Commits Made"random> <IosGitCommit color="#748f87"></IosGitCommit> </IconNode>
+        </Col>
+        <Col className="right">
+          <IconNode content=""random> <IosCafe color="#748f87"></IosCafe> </IconNode>
+          <IconNode content="" random> <IosBulb color="#748f87"></IosBulb> </IconNode>
+          <IconNode content="Km Swam"random> <IosGitCommit color="#748f87"></IosGitCommit> </IconNode>
+        </Col>
+      </Row>
+      <Row className="bottom">
+        <Col>
+        <StyledButton> See Code! </StyledButton>
+        </Col>
+      </Row>
+  </Container>
   </div>
   );
 }
