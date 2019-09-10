@@ -1,11 +1,7 @@
-@keyframes example {
-  from {background-color: red;}
-  to {background-color: yellow;}
-}
-
 .App {
   text-align: center;
-  padding-bottom: 10%;
+  max-height: 1000;
+
 }
 
 .App-header {
@@ -33,26 +29,13 @@ svg {
 }
 
 .counterText {
-  text-align: left;
   top: 23px;
   padding-bottom: 30px;
+  right: 10px
 }
 
-.right.nodeImage{
-  position: relative;
-  right: 45px;
-  top: -3px;
-}
-
-.left.nodeImage{
-  position: relative;
-  right: -45px;
-  top: -2px;
-}
-
-.nodeText{
-  position: relative;
-  top:-25px;
+.counterImage {
+  left: 10px;
 }
 
 .btn {
@@ -63,24 +46,21 @@ svg {
   margin-top: 15%;
 }
 
-.col {
-  height: 40px;
-}
-
 .container {
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 700px;
 }
 
 .container img {
   width: 100%;
+  max-width: 400px;
   height: auto;
 }
 
 #circle .btn-group-vertical {
   position: absolute;
-  top: 45%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -92,12 +72,6 @@ svg {
   text-align: center;
 }
 
-#left {
-  width: 100vw;
-  position: absolute;
-  transform: translate(-90%, -282%);
-  opacity: 0.6
-}
 
 #orange {
   background: #cd7a23;
@@ -118,6 +92,15 @@ svg {
   margin-bottom: 10%;
 }
 
+.bounceArrow {
+  position: relative;
+  left: 30%;
+  top: 100px;
+  z-index: -1;
+  max-width: 100px;
+  max-height: 100px;
+}
+
 body {
   background-color: #F0EEE9;
 }
@@ -133,29 +116,10 @@ body {
   z-index: 4;
 }
 
-#stripes {
-  bottom: 40px;
-  z-index: 3;
-  position: relative;
+.stripes {
+  bottom: 200px;
   opacity: 0.6;
   max-width: 150px;
-}
-
-#outerStripe {
-  bottom: 40px;
-  z-index: 3;
-  position: relative;
-  opacity: 0.6;
-}
-
-#left-stripe {
-  /* background-color: #748f87; */
-  height: 500px;
-}
-
-#right-stripe {
-  /* background-color: #2b211f; */
-  height: 500px;
 }
 
 #spacer {
@@ -163,7 +127,21 @@ body {
 }
 
 #timeline {
-  bottom: 880px;
+  bottom: 1200px;
+  height: 700px;
+}
+
+#intro {
+    bottom: 1350px;
+}
+
+.right {
+  object-position: right;
+  right: -45px;
+}
+
+.left {
+  left: -20px;
 }
 
 
@@ -171,16 +149,4 @@ body {
   background-color: #748f87;
   outline-color: #2b211f;
 
-}
-
-/* #first {
-  background-color: Green;
-} */
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

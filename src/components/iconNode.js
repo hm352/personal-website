@@ -9,7 +9,7 @@ class IconNode extends React.Component {
     var min = 1;
     var max = 100;
     if(props.random){
-      var count = Math.floor(Math.random()*(max - min));
+      count = Math.floor(Math.random()*(max - min));
     }
     this.state = {count: count};
   }

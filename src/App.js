@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import logo from './circle.png';
+import arrow from './down-arrow.svg'
 import styled from 'styled-components';
 import './App.css';
 import IconNode from "./components/iconNode.js";
@@ -16,15 +17,17 @@ import IosGitCommit from 'react-ionicons/lib/IosGitCommit';
 
 const Stripe = styled(Col)`
   background: ${props => props.color};
+  height: ${ props => props.height};
 `
 
 function StyledStripe(props){
 var colour1 = props.colour1;
 var colour2 = props.colour2;
+var height = props.height || '500px';
 return <Row className={props.className}>
   <Col></Col>
-  <Stripe id="left-stripe" color={colour1}/>
-  <Stripe id="right-stripe"color={colour2}/>
+  <Stripe id="left-stripe" color={colour1} height={height}/>
+  <Stripe id="right-stripe"color={colour2} height={height}/>
   <Col></Col>
 </Row>;
 }
@@ -36,6 +39,7 @@ const StyledButton = styled(Button)`
   width: 100px;
   text-align: center;
   opacity: 1;
+  z-index: 1;
 `
 
 class ColorContainer extends React.Component {
@@ -83,28 +87,48 @@ function App() {
             <ColorContainer  content="Blog" position="inner"></ColorContainer>
             <ColorContainer  content="Fun Stuff"position="outer"></ColorContainer>
         </ButtonGroup>
+        <Image  className="bounceArrow" src={ arrow }/>
       </Container>
-      <Container id="stripes">
-          <StyledStripe id="stripe" className="stripe" colour1="#748f87" colour2="#2b211f"></StyledStripe>
+      <Container className="stripes">
+          <StyledStripe colour1="#748f87" colour2="#2b211f" height='400px'></StyledStripe>
+          <StyledStripe  colour1="#748f87" colour2="#2b211f"></StyledStripe>
+          <StyledStripe  id="end" colour1="#748f87" colour2="#2b211f"></StyledStripe>
       </Container>
-      <div id="CV">
-      <Container id="stripes">
-          <StyledStripe id="stripe" className="stripe" colour1="#748f87" colour2="#2b211f"></StyledStripe>
-          <StyledButton className="styledbutton"> Download CV </StyledButton>
-      </Container>
-    <Container id="timeline">
+    <Container id="intro">
+      <StyledButton> Brief Intro</StyledButton>
       <Row>
-        <Col>
+      <Col className="left">
+        <p> hello </p>
+      </Col>
+      <Col className="right">
+        <p> there </p>
+      </Col>
+    </Row>
+    </Container>
+    <Container id="timeline">
+    <Row>
+      <Col>
+        <StyledButton> Since 1995 I have</StyledButton>
+      </Col>
+    </Row>
+    <Row>
+        <Col className="left">
           <IconNode content="Coffees"random> <IosCafe color="#748f87"></IosCafe> </IconNode>
           <IconNode content="Ideas" random> <IosBulb color="#748f87"></IosBulb> </IconNode>
-          <IconNode content="Commits"random> <IosGitCommit color="#748f87"></IosGitCommit> </IconNode>
+          <IconNode content="Commits Made"random> <IosGitCommit color="#748f87"></IosGitCommit> </IconNode>
         </Col>
-        <Col className="codeColumn">
-          <StyledButton href="" className="styledbutton"> See Code! </StyledButton>
+        <Col className="right">
+          <IconNode content=""random> <IosCafe color="#748f87"></IosCafe> </IconNode>
+          <IconNode content="" random> <IosBulb color="#748f87"></IosBulb> </IconNode>
+          <IconNode content="Km Swam"random> <IosGitCommit color="#748f87"></IosGitCommit> </IconNode>
+        </Col>
+      </Row>
+      <Row className="bottom">
+        <Col>
+        <StyledButton> See Code! </StyledButton>
         </Col>
       </Row>
   </Container>
-      </div>
   </div>
   );
 }
