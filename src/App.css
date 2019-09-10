@@ -4,6 +4,9 @@
 
 }
 
+#intro {
+  padding-top: 100px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -44,6 +47,7 @@ svg {
   width: 120px;
   height: 60%;
   margin-top: 15%;
+  text-align: center;
 }
 
 .container {
@@ -94,20 +98,20 @@ svg {
 
 .bounceArrow {
   position: relative;
-  left: 30%;
   top: 100px;
   z-index: -1;
   max-width: 100px;
   max-height: 100px;
 }
 
+#arrowsContent {
+  top: 150px;
+}
+
 body {
   background-color: #F0EEE9;
 }
 
-/* .newPage{
-  display: none;
-} */
 .nodeContent{
   padding-top: 7em;
 }
@@ -116,28 +120,13 @@ body {
   z-index: 4;
 }
 
-.stripes {
-  bottom: 200px;
-  opacity: 0.6;
-  max-width: 150px;
-}
-
 #spacer {
   height: 100px;
 }
 
-#timeline {
-  bottom: 1200px;
-  height: 700px;
-}
-
-#intro {
-    bottom: 1350px;
-}
-
 .right {
   object-position: right;
-  right: -45px;
+  right: -40px;
 }
 
 .left {
@@ -145,8 +134,9 @@ body {
 }
 
 
-.styledbutton:hover {
-  background-color: #748f87;
+.btn:hover {
+  background-color: #2b211f;
+  opacity: 0.9;
   outline-color: #2b211f;
 
 }

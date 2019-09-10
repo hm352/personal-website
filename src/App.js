@@ -33,7 +33,7 @@ return <Row className={props.className}>
 }
 
 const StyledButton = styled(Button)`
-  background: #2b211f;
+  background: #cd7a23;
   border-radius: 50%;
   height: 100px;
   width: 100px;
@@ -79,30 +79,34 @@ function App() {
         <br></br>
         <h5> Henry Maher - Software Developer </h5>
       </div>
-      <Container id="circle">
-        <Image id="circle-image" src={ logo }/>
-        <ButtonGroup vertical>
-            <ColorContainer  content="GitHub" href="https://github.com/hm352" position="outer"> </ColorContainer>
-            <ColorContainer  content="LinkedIn" position="inner" href="https://uk.linkedin.com/in/henry-maher-340949b8"></ColorContainer>
-            <ColorContainer  content="Blog" position="inner"></ColorContainer>
-            <ColorContainer  content="Fun Stuff"position="outer"></ColorContainer>
-        </ButtonGroup>
-        <Image  className="bounceArrow" src={ arrow }/>
-      </Container>
-      <Container className="stripes">
-          <StyledStripe colour1="#748f87" colour2="#2b211f" height='400px'></StyledStripe>
-          <StyledStripe  colour1="#748f87" colour2="#2b211f"></StyledStripe>
-          <StyledStripe  id="end" colour1="#748f87" colour2="#2b211f"></StyledStripe>
-      </Container>
+    <Container id="circle">
+      <Image id="circle-image" src={ logo }/>
+      <ButtonGroup vertical>
+          <ColorContainer  content="GitHub" href="https://github.com/hm352" position="outer"> </ColorContainer>
+          <ColorContainer  content="LinkedIn" position="inner" href="https://uk.linkedin.com/in/henry-maher-340949b8"></ColorContainer>
+          <ColorContainer  content="Blog" position="inner"></ColorContainer>
+          <ColorContainer  content="Fun Stuff"position="outer"></ColorContainer>
+      </ButtonGroup>
+    <Container id="arrows">
+      <Row>
+        <Col>
+          <Image  className="bounceArrow" src={ arrow }/>
+        </Col>
+        <Col id="arrowsContent">
+          <h4 > scroll down! </h4>
+        </Col>
+        <Col>
+          <Image  className="bounceArrow" src={ arrow }/>
+        </Col>
+      </Row>
+    </Container>
+    </Container>
     <Container id="intro">
       <StyledButton> Brief Intro</StyledButton>
       <Row>
-      <Col className="left">
-        <p> hello </p>
-      </Col>
-      <Col className="right">
-        <p> there </p>
-      </Col>
+        <Col>
+            <p> hello, there </p>
+        </Col>
     </Row>
     </Container>
     <Container id="timeline">
@@ -122,12 +126,12 @@ function App() {
           <IconNode content="" random> <IosBulb color="#748f87"></IosBulb> </IconNode>
           <IconNode content="Km Swam"random> <IosGitCommit color="#748f87"></IosGitCommit> </IconNode>
         </Col>
-      </Row>
-      <Row className="bottom">
-        <Col>
-        <StyledButton> See Code! </StyledButton>
-        </Col>
-      </Row>
+    </Row>
+    <Row className="bottom">
+      <Col>
+        <StyledButton href="https://github.com/hm352/personal-website"> See Code! </StyledButton>
+      </Col>
+    </Row>
   </Container>
   </div>
   );
