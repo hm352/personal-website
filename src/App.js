@@ -1,69 +1,23 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import logo from './circle.png';
-import arrow from './down-arrow.svg'
-import styled from 'styled-components';
+import arrow from './down-arrow.svg';
+import diamonds from './diamonds.jpeg';
 import './App.css';
 import IconNode from "./components/iconNode.js";
+import ColorContainer from "./components/colorContainer.js";
+import StyledButton from "./components/styledButton.js";
+import PillBadge from "./components/styledHeader.js";
 import IosCafe from 'react-ionicons/lib/IosCafe';
 import IosBulb from 'react-ionicons/lib/IosBulb';
 import IosGitCommit from 'react-ionicons/lib/IosGitCommit';
-
-
-const Stripe = styled(Col)`
-  background: ${props => props.color};
-  height: ${ props => props.height};
-`
-
-function StyledStripe(props){
-var colour1 = props.colour1;
-var colour2 = props.colour2;
-var height = props.height || '500px';
-return <Row className={props.className}>
-  <Col></Col>
-  <Stripe id="left-stripe" color={colour1} height={height}/>
-  <Stripe id="right-stripe"color={colour2} height={height}/>
-  <Col></Col>
-</Row>;
-}
-
-const StyledButton = styled(Button)`
-  background: #cd7a23;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-  text-align: center;
-  opacity: 1;
-  z-index: 1;
-`
-
-class ColorContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {date: true};
-  }
-  onClick() {
-    alert("click");
-  }
-  render() {
-    if(this.state.date){
-    return (
-      <Row id={ this.props.position }>
-        <Col text-center="true" >
-          <Button onClick={this.onClick} href={this.props.href}>
-            {this.props.content}
-          </Button>
-        </Col>
-      </Row>
-    );
-  }
-  }
-}
+import IosPlaneOutline from 'react-ionicons/lib/IosPlaneOutline';
+import MdPaper from 'react-ionicons/lib/MdPaper';
+import IosWater from 'react-ionicons/lib/IosWater';
 
 function App() {
   return (
@@ -82,11 +36,12 @@ function App() {
     <Container id="circle">
       <Image id="circle-image" src={ logo }/>
       <ButtonGroup vertical>
-          <ColorContainer  content="GitHub" href="https://github.com/hm352" position="outer"> </ColorContainer>
+          <ColorContainer  content="GitHub"  position="outer" href="https://github.com/hm352"> </ColorContainer>
           <ColorContainer  content="LinkedIn" position="inner" href="https://uk.linkedin.com/in/henry-maher-340949b8"></ColorContainer>
-          <ColorContainer  content="Blog" position="inner"></ColorContainer>
+          <ColorContainer  content="Blog" position="inner" href="https://henrymaher99.wixsite.com/tinfoil-diaries"></ColorContainer>
           <ColorContainer  content="Fun Stuff"position="outer"></ColorContainer>
       </ButtonGroup>
+    </Container>
     <Container id="arrows">
       <Row>
         <Col>
@@ -100,34 +55,59 @@ function App() {
         </Col>
       </Row>
     </Container>
-    </Container>
     <Container id="intro">
-      <StyledButton> Brief Intro</StyledButton>
+      <PillBadge> Brief Intro</PillBadge>
       <Row>
         <Col>
-            <p> hello, there </p>
+          <Image roundedCircle src={ diamonds }/>
         </Col>
-    </Row>
+      </Row>
+      <Row>
+        <Col>
+            <p>
+              Hello there, I'm Henry Maher as you may have already guessed
+              and this is the personal website I made to upskill in React.
+              I Graduated from the University of Exeter with a BA in Economics
+              and through an incredible series of events have ended up becoming a software
+              developer.
+            </p>
+        </Col>
+        <Col>
+          <p>
+            My most recent experience is with a FinTech called Yobota helping to
+            build cloud online banking infastructure. Notably building RESTful APIs
+            and integrating with the Open Banking Directory.
+          </p>
+        </Col>
+      </Row>
+    </Container>
+    <Container id="skills">
+      <PillBadge> Skills </PillBadge>
+      <Row>
+        <Col>
+            <p> </p>
+        </Col>
+      </Row>
     </Container>
     <Container id="timeline">
     <Row>
       <Col>
-        <StyledButton> Since 1995 I have</StyledButton>
+        <PillBadge> Monthly Stats </PillBadge>
       </Col>
     </Row>
     <Row>
-        <Col className="left">
+        <Col>
           <IconNode content="Coffees"random> <IosCafe color="#748f87"></IosCafe> </IconNode>
           <IconNode content="Ideas" random> <IosBulb color="#748f87"></IosBulb> </IconNode>
           <IconNode content="Commits Made"random> <IosGitCommit color="#748f87"></IosGitCommit> </IconNode>
         </Col>
-        <Col className="right">
-          <IconNode content=""random> <IosCafe color="#748f87"></IosCafe> </IconNode>
-          <IconNode content="" random> <IosBulb color="#748f87"></IosBulb> </IconNode>
-          <IconNode content="Km Swam"random> <IosGitCommit color="#748f87"></IosGitCommit> </IconNode>
+        <Col>
+          <IconNode content="Flights"random> <IosPlaneOutline color="#748f87"></IosPlaneOutline> </IconNode>
+          <IconNode content="Blogs" count="1"> <MdPaper color="#748f87"></MdPaper> </IconNode>
+          <IconNode content="Km Swam"random> <IosWater color="#748f87"></IosWater> </IconNode>
         </Col>
     </Row>
-    <Row className="bottom">
+    <Row>
       <Col>
         <StyledButton href="https://github.com/hm352/personal-website"> See Code! </StyledButton>
       </Col>

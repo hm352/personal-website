@@ -26,7 +26,13 @@ svg {
 .icon {
   padding-bottom: 20px;
 }
-
+.badge-pill{
+  min-height: 30px;
+  margin-top: 150px;
+  margin-bottom: 30px;
+  width: inherit;
+  background: #cd7a23;
+}
 .counterRow {
   padding-bottom: 30px;
 }
@@ -60,11 +66,12 @@ svg {
   width: 100%;
   max-width: 400px;
   height: auto;
+  padding-bottom: 10%;
 }
 
 #circle .btn-group-vertical {
   position: absolute;
-  top: 35%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -105,16 +112,13 @@ svg {
 }
 
 #arrowsContent {
-  top: 150px;
+  top: 100px;
 }
 
 body {
   background-color: #F0EEE9;
 }
 
-.nodeContent{
-  padding-top: 7em;
-}
 #circle {
   position: relative;
   z-index: 4;
@@ -124,15 +128,9 @@ body {
   height: 100px;
 }
 
-.right {
-  object-position: right;
-  right: -40px;
+#intro #timeline {
+  padding-bottom: 100px;
 }
-
-.left {
-  left: -20px;
-}
-
 
 .btn:hover {
   background-color: #2b211f;

@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 class IconNode extends React.Component {
   constructor(props){
     super(props);
-    var count = 0;
+    var count = props.count || 0;
     var min = 1;
     var max = 100;
     if(props.random){
